@@ -16,8 +16,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: AppAdapter
     private var hideSystem = true
-    private var isAppNameAscending = true
-    private var isAppDateAscending = true
+    private var isAppNameAscending = false
+    private var isAppDateAscending = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         adapter = AppAdapter(filteredAppList)
         recyclerView.adapter = adapter
+        sortAppsByName()
     }
 
     private fun getInstalledApps(): MutableList<AppInfo> {
@@ -68,7 +69,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        appInfoList.sortBy { it.name }
         return appInfoList
     }
 
@@ -121,9 +121,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun sortAppsByName() {
         if (isAppNameAscending) {
-            appList.sortBy { it.name }
-        } else {
             appList.sortByDescending { it.name }
+        } else {
+            appList.sortBy { it.name }
         }
         isAppNameAscending = !isAppNameAscending
         adapter.updateData(filterApps(appList))
@@ -131,9 +131,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun sortAppsByDate() {
         if (isAppDateAscending) {
-            appList.sortBy { it.lastUpdate }
-        } else {
             appList.sortByDescending { it.lastUpdate }
+        } else {
+            appList.sortBy { it.lastUpdate }
         }
         isAppDateAscending = !isAppDateAscending
         adapter.updateData(filterApps(appList))
