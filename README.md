@@ -32,6 +32,7 @@ F2:2F:16:EC:FA:A0:EA:5E:C4:CA:C2:6B:0C:92:C0:E8:DE:94:80:94:26:18:9A:2C:A8:5E:1E
 ## Screenshots
 
 | <img src="screenshots/Example_App_List.png" width=45%> | <img src="screenshots/Menu.png" width=45%> |
+| <img src="screenshots/Example_App_List_Dark.png" width=45%> | <img src="screenshots/Menu_Dark.png" width=45%> |
 
 ## Having issues, suggestions and feedback?
 
