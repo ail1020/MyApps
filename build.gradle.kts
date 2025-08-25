@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "info.ails.myapps"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "info.ails.myapps"
         minSdk = 33
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 7
         versionName = "1.3.4"
 
