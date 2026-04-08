@@ -17,6 +17,21 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            // Use environment variables for CI/CD
+            val keystorePath: String? = System.getenv("KEYSTORE_PATH")
+            val storePassword: String? = System.getenv("KEYSTORE_PASSWORD")
+            val keyAlias: String? = System.getenv("KEY_ALIAS")
+            val keyPassword: String? = System.getenv("KEY_PASSWORD")
+
+            if (keystorePath != null) storeFile = file(keystorePath)
+            if (storePassword != null) storePassword = storePassword
+            if (keyAlias != null) this.keyAlias = keyAlias
+            if (keyPassword != null) this.keyPassword = keyPassword
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -24,22 +39,25 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlin {
         jvmToolchain(11)
     }
+
     buildFeatures {
         viewBinding = true
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
