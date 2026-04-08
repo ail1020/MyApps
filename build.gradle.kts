@@ -1,11 +1,3 @@
-pluginManagement {
-    repositories {
-        google()                // Must include this
-        gradlePluginPortal()
-        mavenCentral()
-    }
-}
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
