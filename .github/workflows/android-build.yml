@@ -52,12 +52,12 @@ jobs:
           echo "Current versionCode:"
           grep "versionCode" app/build.gradle.kts
 
-          current=$(grep "versionCode" app/build.gradle.kts | awk '{print $2}')
+          current=$(grep "versionCode" app/build.gradle.kts | awk '{print $3}')  # third token after =
           new=$((current + 1))
-          sed -i "s/versionCode $current/versionCode $new/" app/build.gradle.kts
+          sed -i "s/versionCode = $current/versionCode = $new/" app/build.gradle.kts
 
           run_number=${GITHUB_RUN_NUMBER}
-          sed -i "s/versionName \".*\"/versionName \"1.3.$run_number\"/" app/build.gradle.kts
+          sed -i "s/versionName = \".*\"/versionName = \"1.3.$run_number\"/" app/build.gradle.kts
 
           echo "Updated versionCode: $new"
           grep "versionName" app/build.gradle.kts
