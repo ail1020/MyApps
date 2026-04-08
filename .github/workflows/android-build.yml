@@ -11,6 +11,16 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
+      - name: Decode keystore and verify password
+        run: |
+          echo "$KEYSTORE_BASE64" | tr -d '\n' | base64 --decode > keystore.jks
+          file keystore.jks
+          keytool -list -keystore keystore.jks -storetype PKCS12 -alias $KEY_ALIAS -storepass $KEYSTORE_PASSWORD
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          
       - name: Set up release keystore
         run: |
           echo "$KEYSTORE_BASE64" | base64 --decode > ./keystore.jks
