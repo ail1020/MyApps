@@ -48,7 +48,7 @@ jobs:
           echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
         
       - name: Build APK
-        run: ./gradlew assembleRelease --stacktrace --info
+        run: ./gradlew :app:assembleRelease --stacktrace --info
 
       - name: List APK files
         run: |
