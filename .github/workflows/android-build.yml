@@ -33,6 +33,20 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
+      - name: Set up release keystore
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 --decode > ./keystore.jks
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+
+      # 4️⃣ Set environment variables for signing
+      - name: Set signing environment variables
+        run: |
+          echo "KEYSTORE_PATH=./keystore.jks" >> $GITHUB_ENV
+          echo "KEYSTORE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
+          echo "KEY_ALIAS=${{ secrets.KEY_ALIAS }}" >> $GITHUB_ENV
+          echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
+
       - name: Build APK
         run: ./gradlew assembleRelease --stacktrace --info
 
