@@ -19,16 +19,19 @@ android {
 
     signingConfigs {
         create("release") {
-            // Use environment variables for CI/CD
             val ksPath = System.getenv("KEYSTORE_PATH")
             val ksPassword = System.getenv("KEYSTORE_PASSWORD")
             val ksAlias = System.getenv("KEY_ALIAS")
-            val ksKeyPassword = System.getenv("KEY_PASSWORD")
 
             if (ksPath != null) storeFile = file(ksPath)
             if (ksPassword != null) storePassword = ksPassword
             if (ksAlias != null) keyAlias = ksAlias
-            if (ksKeyPassword != null) keyPassword = ksKeyPassword
+
+            // Use store password for key if no separate key password
+            if (ksPassword != null) keyPassword = ksPassword
+
+            // Explicitly set PKCS12 if your keystore is in that format
+            storeType = "PKCS12"
         }
     }
 
