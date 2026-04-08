@@ -50,9 +50,14 @@ jobs:
       - name: Build APK
         run: ./gradlew assembleRelease --stacktrace --info
 
-      # ✅ List APK files before uploading
-      - name: List release APKs
-        run: ./gradlew listReleaseApk
+      - name: List APK files
+        run: |
+          echo "Listing APK outputs directory:"
+          ls -R app/build/outputs/apk || true
+
+          echo ""
+          echo "Finding all APK files:"
+          find app/build/outputs -type f -name "*.apk" || true
         
       - name: Upload APK
         uses: actions/upload-artifact@v4
