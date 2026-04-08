@@ -20,15 +20,15 @@ android {
     signingConfigs {
         create("release") {
             // Use environment variables for CI/CD
-            val keystorePath: String? = System.getenv("KEYSTORE_PATH")
-            val storePassword: String? = System.getenv("KEYSTORE_PASSWORD")
-            val keyAlias: String? = System.getenv("KEY_ALIAS")
-            val keyPassword: String? = System.getenv("KEY_PASSWORD")
+            val ksPath = System.getenv("KEYSTORE_PATH")
+            val ksPassword = System.getenv("KEYSTORE_PASSWORD")
+            val ksAlias = System.getenv("KEY_ALIAS")
+            val ksKeyPassword = System.getenv("KEY_PASSWORD")
 
-            if (keystorePath != null) storeFile = file(keystorePath)
-            if (storePassword != null) storePassword = storePassword
-            if (keyAlias != null) this.keyAlias = keyAlias
-            if (keyPassword != null) this.keyPassword = keyPassword
+            if (ksPath != null) storeFile = file(ksPath)
+            if (ksPassword != null) storePassword = ksPassword
+            if (ksAlias != null) keyAlias = ksAlias
+            if (ksKeyPassword != null) keyPassword = ksKeyPassword
         }
     }
 
