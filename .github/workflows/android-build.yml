@@ -46,10 +46,14 @@ jobs:
           echo "KEYSTORE_PASSWORD=${{ secrets.KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
           echo "KEY_ALIAS=${{ secrets.KEY_ALIAS }}" >> $GITHUB_ENV
           echo "KEY_PASSWORD=${{ secrets.KEY_PASSWORD }}" >> $GITHUB_ENV
-
+        
       - name: Build APK
         run: ./gradlew assembleRelease --stacktrace --info
 
+      # ✅ List APK files before uploading
+      - name: List release APKs
+        run: ./gradlew listReleaseApk
+        
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
