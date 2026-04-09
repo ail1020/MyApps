@@ -26,7 +26,7 @@ Features include:
 **MyApps**: 
 ```
 info.ails.myapps
-F2:2F:16:EC:FA:A0:EA:5E:C4:CA:C2:6B:0C:92:C0:E8:DE:94:80:94:26:18:9A:2C:A8:5E:1E:BE:45:70:67:DB
+DE:C5:4E:82:A3:86:2E:E4:1F:64:8D:14:91:76:47:66:40:73:19:65:14:75:BE:64:69:A7:78:9E:7E:73:7E:D2
 ```
 
 ## Screenshots
