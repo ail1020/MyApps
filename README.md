@@ -9,12 +9,19 @@
 
 Just a simple app that displays installed apps. Was made to help me identify when an app hasn't been updated in a long time.
 
-Features include:
-- list user installed apps by default
-- show/hide system apps
-- display where app was installed from
-- sort by app name
-- sort by updated date
+## Features
+* list user installed apps by default
+* show/hide system apps
+* display where app was installed from
+* sort by app name
+* sort by updated date
+
+## Permissions - what's neaded and why
+* QUERY_ALL_PACKAGES - Needed to get and display the other apps installed on the device
+
+
+>[!NOTE]
+>The lack of INTERNET permission means this app can't access the internet, even if it wanted to.
 
 ## Installation
 
