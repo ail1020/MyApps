@@ -1,5 +1,6 @@
 <div align="center">
 
+[![GitHub CI](https://img.shields.io/github/actions/workflow/status/ail1020/MyApps/android-build.yml)](https://github.com/ail1020/MyApps/actions/workflows/android-build.yml)
 [![GitHub repo stars](https://img.shields.io/github/stars/ail1020/MyApps?style=flat)](https://github.com/ail1020/MyApps/stargazers)
 [![GitHub License](https://img.shields.io/github/license/ail1020/MyApps)](https://github.com/ail1020/MyApps/blob/master/LICENSE)
 [![GitHub All Releases](https://img.shields.io/github/downloads/ail1020/MyApps/total.svg)](https://github.com/ail1020/MyApps/releases/)

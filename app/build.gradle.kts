@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId = "info.ails.myapps"
-        minSdk = 33
+        minSdk = 35
         targetSdk = 36
         versionCode = 7
         versionName = "1.3.4"
@@ -53,6 +53,8 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    compileSdkMinor = 1
+    buildToolsVersion = "36.1.0"
 }
 
 kotlin {
