@@ -1,6 +1,16 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
 }
+val versionProps = Properties()
+file("../version.properties").inputStream().use {
+    versionProps.load(it)
+}
+
+val major = versionProps["MAJOR"].toString()
+val minor = versionProps["MINOR"].toString()
+val patch = versionProps["PATCH"].toString()
 
 android {
     namespace = "info.ails.myapps"
@@ -10,8 +20,8 @@ android {
         applicationId = "info.ails.myapps"
         minSdk = 35
         targetSdk = 36
-        versionCode = 7
-        versionName = "1.3.4"
+        versionCode = versionProps["VERSION_CODE"].toString().toInt()
+        versionName = "$major.$minor.$patch"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
