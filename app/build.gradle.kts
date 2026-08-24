@@ -14,12 +14,12 @@ val patch = versionProps["PATCH"].toString()
 
 android {
     namespace = "info.ails.myapps"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "info.ails.myapps"
         minSdk = 35
-        targetSdk = 36
+        targetSdk = 37
         versionCode = versionProps["VERSION_CODE"].toString().toInt()
         versionName = "$major.$minor.$patch"
 
