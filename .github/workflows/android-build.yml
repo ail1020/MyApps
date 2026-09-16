@@ -33,10 +33,12 @@ jobs:
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v4
+        with:
+            packages: ''
 
-      - name: Install SDK 36
+      - name: Install SDK 37
         run: |
-          sdkmanager "platforms;android-36" "build-tools;36.0.0"
+          sdkmanager "platforms;android-37" "build-tools;37.0.0"
 
       - name: Accept licenses
         run: yes | sdkmanager --licenses
